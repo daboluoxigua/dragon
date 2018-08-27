@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>参与活动赢大奖</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+		<link rel="stylesheet" href="css/css.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<script type="text/javascript" src="js/zepto_1.1.3.js" ></script>
+		<script type="text/javascript">
+			var g_rem = 20;
+			(function(win) {
+				var orientationX = false; //是否横屏进来
+				if(win.orientation == 90 || win.orientation == -90) {
+					orientationX = true;
+				}
+				var docEl = win.document.documentElement,
+					tid;
+
+				function refreshRem1() {
+					g_rem = docEl.getBoundingClientRect().width / 16;
+					!g_rem && (g_rem = 20);
+					docEl.style.fontSize = g_rem + 'px';
+				}
+
+				function refreshRem2() {
+					g_rem = docEl.getBoundingClientRect().width / 16;
+					if(!g_rem) {
+						return refreshRem1();
+					}
+					var width = docEl.getBoundingClientRect().width;
+					var d = win.document.createElement('div');
+					d.style.width = '1rem';
+					d.style.display = "none";
+					docEl.firstElementChild.appendChild(d);
+					var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+					docEl.firstElementChild.removeChild(d);
+					docEl.style.fontSize = g_rem+"px";
+				}
+				var refreshRem = refreshRem2;
+				try {
+					win.addEventListener("orientationchange", function() { //触发手机横屏竖屏事件
+						if(orientationX) {
+							location.reload();
+						}
+					}, false);
+				} catch(e) {
+
+				}
+				
+				refreshRem();
+			})(window);
+			
+		</script>
+		
+	</head>
+
+	<body>
+		<div class="Loading">加载中...</div>
+		<!--<div class="attention"><span></span><img src="images/attention.jpg"></div>-->
+		<div class="home">
+			<div class="rule"></div>
+			<div class="rule_pop hide">
+				<div class="m">
+					<span><img src="images/xiaozongzi.png"> “粽宝宝”跳上龙舟，每成功跳上一个龙舟即可得10分，游戏时间为120s。</span>
+					<span><img src="images/xiaozongzi.png"> 每天登陆游戏即可参与3次游戏。</span>
+					<span><img src="images/xiaozongzi.png"> 分享给好友即可多得1次参与机会。</span>
+				</div>
+				<button class="zdl"></button>
+			</div>
+			
+			<div class="participate">已有<em>10</em>人参与游戏<br />您还有<em>3</em>次参与机会</div>
+			<div class="titleImg animated flipInY"></div>
+			<button class="playbtn animated bounceInUp"></button>
+			<p class="rbtn"><span class="rankingbtn">排行榜</span></p>
+		</div>
+		
+		<div class="gameBgBox hide">
+			<div class="course"></div>
+			<div id="gameBgBox">
+				<img id="gameBg" src="images/bg.png" style="width:100%;height:auto;">
+			</div>
+			<div id="gameTopBar" class="gameTopBar" >
+				<div class="userInfoBox">
+					<div class="userImgBox"><img src="http://hdg.faisys.com/image/manImg.jpg" class="userImg"></div>
+
+					<div id="grade" class="grade">0</div>
+
+				</div>
+				<div class="timeBox">
+					时间<br><span class="time">120.0</span>
+				</div>
+			</div>
+			<img src="images/role1.png" id="role1" class="hide">
+			<img src="images/role2.png" id="role2" class="hide">
+			<img src="images/lz.png" id="lz" class="hide">
+			<div id="gamePlayPanel" class="gamePlayPanel">
+				<canvas id="canvas">你的浏览器不支持canvas，请换个牛逼点的浏览器，谢谢</canvas>
+			</div>
+		</div>
+		<div id="spxdPage"></div>
+		
+		
+		<div class="wind hide">
+			<div class="userImg"><img src="http://hdg.faisys.com/image/manImg.jpg"></div>
+			<div class="resule-bgLight"></div>
+			<div class="m">
+				<p>您的成绩为：<br /><b>xx</b></p>
+				<p>最佳成绩为：1800分</p>
+				<p>当前排名：NO.1</p>
+			</div>
+			<div class="btnbox"><button class="again"><img src="images/wind_07.png"></button><button class="rankingbtn"><img src="images/wind_09.png"></button></div>
+			<div class="chance">你今天还有 <em>2</em> 次机会</div>
+			<div class="sharetbox"><span class="sharet"><u>分享给朋友</u>>></span></div>
+		</div>
+		
+		<div class="ranking hide">
+			<div class="m">
+				<p>当前排名：<em>NO.1</em></p>
+				<div class="rlist">
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tr><th>排行</th><th>头像</th><th>昵称</th><th>成绩</th></tr>
+						<tr><td>No.1</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.2</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.3</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.4</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+						<tr><td>No.5</td><td><img src="http://hdg.faisys.com/image/manImg.jpg"></td><td>ALEEN</td><td>1800</td></tr>
+					</table>
+				</div>
+			</div>
+			
+			<div class="btnbox"><button class="again"><img src="images/wind_07.png"></button></div>
+			<div class="sharetbox"><span class="sharet"><u>分享给朋友</u>>></span></div>
+		</div>
+		
+		<div class="share-wx">
+			<img src="images/share.png" style="width: 100%;">
+		</div>
+		
+		<audio controls loop id="bgmusic" class="hide">
+		  <source src="images/bgmusic01M.mp3" type="audio/mpeg">
+		</audio>
+		<audio controls id="jumpmusic" class="hide">
+		  <source src="images/jump.mp3" type="audio/mpeg">
+		</audio>
+		<script type="text/javascript">
+			
+			window.onload = function() { 
+				$(".Loading").addClass("hide");
+			};
+			
+//界面操作---------------------------------------------------------------------
+			$(function(){
+				$(".rule").click(function(){
+					$(".rule_pop").show()
+				})
+				$(".rule_pop").click(function(){
+					$(this).hide()
+				})
+				
+				//开始游戏
+				$(".playbtn").click(function(){
+					gameStartInit()
+				})
+				
+				//再玩一次
+				$(".again").click(function(){
+					gameStartInit()
+				})
+				
+				//查看排行榜
+				$(".rankingbtn").click(function(){
+					$(".wind").addClass("hide")
+					$(".ranking").removeClass("hide")
+				})
+				
+				//分享指引
+				$(".sharet").click(function(){
+					$(".share-wx").show()
+				})
+				$(".share-wx").click(function(){
+					$(this).hide()
+				})
+				
+				//关注
+				$(".att").click(function(){
+					$(".attention").removeClass("hide")
+				})
+				$(".attention span").click(function(){
+					$(".attention").addClass("hide")
+				})
+				
+				
+			})
+			
+			
+			//开始游戏
+			var theFirst = "theFirst=First";
+			var theFirst_name="theFirst"; // 变量名
+			function gameStartInit(){
+				$(".wind,.ranking,.home,.share-wx").addClass("hide")
+				$(".gameBgBox").removeClass("hide");
+				bf("bgmusic");
+				bf("jumpmusic");
+				
+		        var c_start = document.cookie.indexOf(theFirst_name + "=")
+		        if (c_start != -1) {
+		            $(".course").addClass("hide")
+		            gameStart()//开始游戏
+		        }else{
+		        	$(".course").click(function(){
+						$(this).addClass("hide");
+						gameStart()//第一次进入 开始游戏
+						document.cookie = theFirst;
+					})
+		        	setTimeout(function(){
+		        		$(".course").addClass("hide");
+						gameStart()//第一次进入 开始游戏
+						document.cookie = theFirst;
+		        	},2000)
+		        }
+			}
+			
+//控制游戏部分--------------------------------------------------------------------
+			var _gameOver = true;
+			var GameArg = {
+				accelerationX: 0
+			};
+			
+			var role1=document.getElementById("role1")
+			var role2=document.getElementById("role2");
+			var lz=document.getElementById("lz");
+			var jumperImg = new ImageObject();
+			var cloudList = [];
+			
+			var score =0
+			var sw=0;
+			var level = 1; //游戏分数等级
+			var levelLimit=100//游戏等级上限
+			var theDistance = levelLimit;//上限++
+			var theDurationTime=120;//设置游戏时长
+			var step = 0;
+			GameArg.isStart = true;
+			var gameFirst = true;
+			var cloudDistance = 0; //云之间的距离
+			var isOverThitenMinutes = 6 * 60 * 1000; //10分钟
+			var theStartTime = 0;
+			var theIndex = 1;
+			var clientWidth = $(window).width(),
+				clientHeight = $(window).height();
+			
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+
+			$(function() {
+				var bgHeight = $(window).height() < 504 ? 504 : $(window).height();
+				$('#gameBgBox').css('height', bgHeight);
+
+				window.addEventListener('devicemotion', deviceMotionHandler, false);
+			});
+
+			function isIPhone4() {
+				return window.navigator.userAgent.indexOf('iPhone') !== -1 && (window.screen.availHeight === 460);
+			}
+
+			function isAndroid() {
+				return window.navigator.userAgent.indexOf('Android') !== -1;
+			}
+
+			function gameInit() {
+				grade=0;
+				step = 0;
+				level = 1;
+				theDurationTime=120;
+				cloudList = [];
+				_gameOver = false;
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				jumperImg.y = canvas.height - jumperImg.h;
+				jumperImg.x = 0;
+				theStartTime = jumperImg.time = new Date().getTime();
+				theDistance = levelLimit;
+				theEndTime=theStartTime+theDurationTime*1000;
+				jumperUp();
+				addCloudList(5);
+				jump();
+			}
+
+			function gameStart() {
+				gamePlayPanel_t = 4 * g_rem;
+				gamePlayPanel_h = clientHeight;
+				gamePlayPanel_w = $('#gamePlayPanel').width();
+				$('#gamePlayPanel').css('top', 0).height(gamePlayPanel_h);
+				var backingStore = ctx.backingStorePixelRatio ||
+					ctx.webkitBackingStorePixelRatio ||
+					ctx.mozBackingStorePixelRatio ||
+					ctx.msBackingStorePixelRatio ||
+					ctx.oBackingStorePixelRatio ||
+					ctx.backingStorePixelRatio || 1;
+				window.ratio = (window.devicePixelRatio || 1) / backingStore;
+				
+				canvas.width = clientWidth * ratio;
+				canvas.height = gamePlayPanel_h * ratio;
+				canvas.style.width = clientWidth + "px";
+				canvas.style.height = gamePlayPanel_h + "px";
+				
+				cloudDistance = canvas.height / 3;
+				jumperImg.w = parseRemToPx('3.45rem') * ratio;
+				jumperImg.h = parseRemToPx('3.45rem') * ratio;
+				GameArg.limitY = canvas.height * 0.3;
+				gameInit();
+				
+				
+			}
+
+			function addCloudList(num) {
+				for(var i = 0; i < num; i++) {
+					var cloud = creatCloud();
+					cloud.y = (cloudList.length ? cloudList[cloudList.length - 1].y : canvas.height) - cloudDistance;
+					cloudList.push(cloud);
+					cloud.hasStep=false
+				}
+				if(cloudList.length > 5) {
+					delCloud(cloudList.length - 5);
+				}
+				
+			}
+
+			function creatCloud() {
+				var cloudImg = new ImageObject();
+				var rand = Math.random();
+				cloudImg.imgs = lz;
+				cloudImg.w = parseRemToPx('5.2rem') * ratio;
+				cloudImg.h = parseRemToPx('3.65rem') * ratio;
+
+				cloudImg.x = Math.floor(rand * ($(window).width() * ratio - cloudImg.w));
+
+				return cloudImg;
+			}
+
+			function delCloud(num) {
+				cloudList.splice(0, num);
+			}
+
+			function stepCloud(cloud) {
+				if(!cloud.hasStep) {
+					grade+=level*10
+					$(".grade").html(grade)
+					step++;
+					if(step / 20 == level && level < levelLimit) {
+						level++;
+					}
+					cloud.hasStep = true;
+				}
+				bf("jumpmusic");
+				jumperUp();
+				
+			}
+
+			function jumperUp() {
+				var theDate = new Date().getTime();
+				var s = (level + 0.4) * cloudDistance; //距离
+				var t = 720;
+				jumperImg.a = 2 * s / (t * t);
+				jumperImg.speed = -jumperImg.a * t;
+			}
+
+			function jump() {
+				if(_gameOver) {
+					return;
+				}
+				window.requestAnimFrame(jump);
+				ctx.clearRect(0, 0, gamePlayPanel_w * ratio, gamePlayPanel_h * ratio);
+				
+				var currentTime = (new Date).getTime();
+				var countDown=theEndTime-currentTime;
+				
+				delta = currentTime - jumperImg.time;
+				delta > 500 && (delta = 0);
+				jumperImg.time = currentTime;
+				
+				var text=(1000000+countDown+'').substr(-6,4);
+				text='&nbsp;'+text.substr(0,3)+"'"+text.substr(3)+"'"
+				$(".time").html(text)
+				if(countDown<=0){
+					$(".time").html("000"+"'"+"0"+"'")
+					wind();
+					_gameOver=true
+				}
+				
+				var lastY = jumperImg.y;
+				var lastSpeed = jumperImg.speed;
+				if(GameArg.isStart) {
+					if(isAndroid()) {
+						jumperImg.x -= GameArg.accelerationX * ratio;
+					} else {
+						jumperImg.x += GameArg.accelerationX * ratio;
+					}
+					//屏幕穿梭
+					if(jumperImg.x < -jumperImg.w) {
+						jumperImg.x = $(window).width() * ratio;
+					}
+					if(jumperImg.x > $(window).width() * ratio) {
+						jumperImg.x = -jumperImg.w;
+					}
+					jumperImg.speed += jumperImg.a * delta;
+					jumperImg.y += jumperImg.speed * delta;
+					var deltaY = GameArg.limitY - jumperImg.y;
+					if(deltaY > 0) {
+						jumperImg.y = GameArg.limitY;
+						for(var i = 0; i < cloudList.length; i++) {
+							cloudList[i].y += deltaY;
+						}
+					}
+					if(jumperImg.speed > 0) {
+						if(sw !== 0) {
+							sw=0;
+							jumperImg.imgs = role1;
+						}
+						for(var i = 0; i < cloudList.length; i++) {
+							var cloud = cloudList[i];
+							var cloudL = cloud.x;
+							var cloudR = cloud.x + cloud.w;
+							var cloudT = cloud.y + cloud.h * 0.3;
+							if(lastY + jumperImg.h <= cloudT && jumperImg.y + jumperImg.h >= cloudT && jumperImg.x + 2 * jumperImg.w / 3 > cloudL && jumperImg.x < cloudR - jumperImg.w / 3) { //踩到云  
+								stepCloud(cloud);
+								break;
+							}
+						}
+					} else if(sw != 1) {
+						sw=1;
+						jumperImg.imgs = role2;
+					}
+					if(jumperImg.y > canvas.height - jumperImg.h) {
+						if(step <= 5) {
+							jumperUp();
+						} else if(jumperImg.y > canvas.height) {
+							wind()
+							_gameOver = true;
+						}
+					}
+					if(cloudList[0].y > canvas.height) {
+						addCloudList(1);
+					}
+				}
+				for(var i = 0; i < cloudList.length; i++) {
+					drawImg(cloudList[i]);
+				}
+				
+				drawImg(jumperImg);
+			}
+
+			function ImageObject() {
+				this.x = 0;
+				this.y = 0;
+				this.w = 0;
+				this.h = 0;
+				this.speed = 0;
+				this.imgs = new Image();
+			}
+
+			//位置
+			var deviceMotionHandler = (function() {
+				var last_update = 0;
+				var curTime = 0;
+				return function(eventData) {
+					curTime = new Date().getTime();
+					if((curTime - last_update) > 100) {
+						last_update = curTime;
+						GameArg.accelerationX = eventData.accelerationIncludingGravity.x;
+					}
+				}
+			})();
+
+			GameArg.gameInit = gameInit;
+
+			function gameRestart() {
+				GameArg.gameInit();
+			}
+
+			function parseRemToPx(rem) {
+				if(rem.indexOf('rem') === -1) {
+					return parseFloat(rem);
+				}
+				return parseFloat(rem) * g_rem;
+			}
+			
+			function parsePxToRem(px) {
+				if(px.indexOf('px') === -1) {
+					return px;
+				}
+				return parseFloat(px) / g_rem + 'rem';
+			}
+			
+			window.requestAnimFrame = (function() {
+				return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+					function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+						return window.setTimeout(callback, 1000 / 60);
+					};
+			})();
+			function drawImg(t) {
+				ctx.save();
+				ctx.drawImage(t.imgs, t.x, t.y, t.w, t.h);
+				ctx.restore();
+			}
+			
+			function wind(){
+				$(".wind").removeClass("hide")
+			}
+			
+			function bf(idname){
+				var audio = document.getElementById(idname); 
+				audio.play()
+			}
+		</script>
+	</body>
+
+</html>

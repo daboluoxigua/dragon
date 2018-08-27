@@ -1,0 +1,123 @@
+*{ margin: 0; padding: 0; border: 0;}
+html,body{height: 100%;}
+body{font-family: "microsoft yahei";font-size: 30/40rem;}
+
+@media all and (orientation: portrait) {
+#spxdPage {display: none;} 
+}
+@media all and (orientation: landscape) { 
+#spxdPage {position: fixed;left: 0;top: 0;z-index: 9999;width: 100%;height: 100%;background: url(../images/sjxz.png) #000 center no-repeat;background-size: 30%;} 
+}
+.gameBgBox{width: 100%;height: 100%;float: left;
+    #gameBgBox {width: 100%; height: 504px; overflow: hidden;
+        img {width: 100%;height: auto}
+    }
+    .gameTopBar{position: absolute; top: 0;width: 100%; color: #fff; z-index: 90;
+        .userInfoBox {margin-left: .75rem;margin-top: .5rem;
+        .userImgBox {width: 40/20rem;height: 40/20rem;display: inline-block; border-radius:40/20rem; border: .1rem solid #fff;
+            .userImg {float: left; width: 100%; height: 100%; display: inline-block; border-radius:80/20rem;}
+            
+            }
+            .grade{display: inline-block; line-height: 40/20rem;  vertical-align: top;margin-left: .3rem;font-size: 40/40rem;}
+        }
+    }
+    .gamePlayPanel {width: 100%;top: 4rem;position: absolute;overflow: hidden}
+    .timeBox {width: 100%; position: absolute;left: 0; top: 0;margin: auto;text-align: center;font-size:18/20rem;margin-top: .5rem;}
+    .course{ background: url(../images/course.png) no-repeat center rgba(0,0,0,0.8); background-size: 500/40rem 554/40rem;position: absolute; top: 0;left: 0;width: 100%; height: 100%; z-index: 999;float: left;}
+}
+
+.hide{display: none;}
+
+.home{ background: url(../images/home.jpg); background-size: 100% auto;float: left;width: 100%; height: 100%;
+    .titleImg{ background: url(../images/titleImg.png);background-size: 100% 100%;  width: 512/40rem; height: 188/40rem; position: absolute; top: 156/40rem; left: 69/40rem;}
+    .rule{background: url(../images/rule.png);background-size: 100% 100%;  width: 100/40rem; height: 87/40rem; position: absolute;right: 35/40rem; top: 46/40rem;}
+    .playbtn{ background: url(../images/playbtn.png);background-size: 100% 100%;  width: 290/40rem; height: 75/40rem; position: absolute;right: 176/40rem; bottom: 110/40rem;}
+    .participate{ text-align: center;width: 100%; color: #fff;position: absolute;top: 382/40rem;left: 0;font-size: 28/40rem;
+        em{font-style: normal;color: #ffde77;}
+    }
+    .rbtn{font-size: 36/40rem;font-weight: bold; color: #438f44; text-align: center;width: 100%;position: absolute; bottom: 40/40rem;text-shadow: 1px 1px 1px #fff;}
+}
+
+
+.Loading{position: fixed; z-index:999;left: 0; top: 0; background: #fff;width: 100%; height: 100%; line-height: 300/40rem; text-align: center;font-size: 40/40rem;}
+
+.rule_pop{ background: rgba(0,0,0,0.8);position: fixed;left: 0; top: 0;width: 100%; height: 100%; z-index: 999;
+    .m{background: url(../images/rule_pop.png); background-size: 100% auto;  width: 480/40rem; height: (489-147)/40rem; padding-top: 147/40rem; position: absolute; left: 50%; margin-left: -480/2/40rem;top: 50%; margin-top: -590/2/40rem; z-index: 99;
+        span{ float: left;margin-left: 115/40rem;font-size: 22/40rem; color: #438f44; font-weight: bold;width: 290/40rem;position: relative; margin-bottom: 35/40rem;
+            img{position: absolute; left: -40/40rem; top: 0;width: 27/40rem;}
+        }
+    }
+    .zdl{ background: url(../images/btnzdl.png); background-size: 100% 100%; width: 288/40rem; height: 75/40rem;position: absolute;top: 50%; left: 50%; margin-left: -288/2/40rem; margin-top: 240/40rem;}
+}
+
+
+.wind{background: rgba(0,0,0,0.8);position: fixed;left: 0; top: 0;width: 100%; height: 100%; z-index: 999;
+    .userImg{ z-index: 5; position: absolute;left: 50%; margin-left: -108/40rem; margin-top: -390/40rem; top: 50%; overflow: hidden;float: left; border: 8/40rem #fff solid; width: 200/40rem; height: 200/40rem;-webkit-border-radius: 200/40rem;-moz-border-radius: 200/40rem;border-radius: 200/40rem;
+        img{width: 101%; height: 101%;float: left;}
+    }
+    .resule-bgLight{
+    z-index: 4;
+    top: -30/40rem;
+    width: 16rem;
+    height: 16rem;
+    background: url(../images/light.png) no-repeat;
+    background-size: 100% 100%;position: absolute;border-radius: 50%;left: 0;animation: bgRotate 6s linear infinite;-webkit-animation: bgRotate 6s linear infinite;-moz-animation: bgRotate 6s linear infinite;-o-animation: bgRotate 6s linear infinite;}
+    .m{background: url(../images/wind_03.png) no-repeat; background-size: 100% auto;  width: 480/40rem; height: (421-157)/40rem; padding-top: 157/40rem; position: absolute; left: 50%; margin-left: -480/2/40rem;top: 50%; margin-top: -240/40rem; z-index: 99;
+        p{ font-size: 32/40rem; color: #438f44;position: relative;  width: 100%; text-align: center;
+            b{font-size: 60/40rem;}
+        }
+    }
+    .btnbox{position: absolute; top: 50%; margin-top: 210/40rem; text-align: center;width: 100%;
+        button{ background: none; height: 77/40rem; margin: 0 7/40rem;
+            img{ height: 77/40rem;}
+        }
+    }
+    
+    .chance{ text-align: center; color: #fff; width: 100%;position: absolute;left: 0; top: 50%;margin-top: 320/40rem;
+        em{color: #f6940d;font-style: normal;}
+    }
+    
+    
+}
+
+ .sharetbox{text-align: center; color: #fff; width: 100%;position: absolute;left: 0; top: 50%;margin-top:390/40rem;}
+
+
+
+@keyframes bgRotate{
+    0%{transform: rotate(0deg)}
+    100% {transform: rotate(360deg);}
+}
+
+
+
+.ranking{background: rgba(0,0,0,0.8);position: fixed;left: 0; top: 0;width: 100%; height: 100%; z-index: 999; color: #438f44;
+    .m{position: absolute; background: url(../images/ranking.png) no-repeat;width: 480/40rem; height: 800/40rem; background-size: 100% auto;left: 50%; margin-left: -480/2/40rem;margin-top: 80/40rem; z-index: 99;
+        p{float: left;width: 100%; margin-top: 138/40rem; text-align: center;font-weight: bold;
+            em{font-style: normal; color: #ff9c00;}
+        }
+        .rlist{float: left; height: 420/40rem; overflow: auto;width:440/40rem; margin: 15/40rem 20/40rem;}
+        table{ text-align: center;width: 100%; line-height: 40/40rem;
+            th{line-height: 80/40rem;}
+            img{width: 55/40rem; height: 55/40rem; border: 2/40rem solid #fff;-webkit-border-radius: 55/40rem;
+            -moz-border-radius: 55/40rem;
+            border-radius: 55/40rem;}
+        }
+    }
+    
+    .btnbox{position: absolute; top: 50%; margin-top: 240/40rem; text-align: center;width: 100%;
+        button{ background: none; height: 77/40rem; margin: 0 7/40rem;
+            img{ height: 77/40rem;}
+        }
+    }
+}
+
+
+.share-wx{display: none; position: fixed; left: 0; top: 0;width: 100%; height: 100%; z-index: 999; background: rgba(0,0,0,0.8);}
+
+
+
+.attention{ width: 100%; height: 100%; z-index: 9999;position:absolute;float: left;
+//  span{position: absolute;right: 40/40rem; top: 40/40rem;font-size: 40/40rem; background: url(../images/pop_06.png); background-size:100% 100%;width: 50/40rem; height: 50/40rem;}
+    img{ width: 100%; height: 100%;float: left;}
+}

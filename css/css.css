@@ -1,0 +1,429 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "microsoft yahei";
+  font-size: 0.75rem;
+}
+@media all and (orientation: portrait) {
+  #spxdPage {
+    display: none;
+  }
+}
+@media all and (orientation: landscape) {
+  #spxdPage {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: url(../images/sjxz.png) #000000 center no-repeat;
+    background-size: 30%;
+  }
+}
+.gameBgBox {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.gameBgBox #gameBgBox {
+  width: 100%;
+  height: 504px;
+  overflow: hidden;
+}
+.gameBgBox #gameBgBox img {
+  width: 100%;
+  height: auto;
+}
+.gameBgBox .gameTopBar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  z-index: 90;
+}
+.gameBgBox .gameTopBar .userInfoBox {
+  margin-left: .75rem;
+  margin-top: .5rem;
+}
+.gameBgBox .gameTopBar .userInfoBox .userImgBox {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  border-radius: 2rem;
+  border: .1rem solid #fff;
+}
+.gameBgBox .gameTopBar .userInfoBox .userImgBox .userImg {
+  float: left;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 4rem;
+}
+.gameBgBox .gameTopBar .userInfoBox .grade {
+  display: inline-block;
+  line-height: 2rem;
+  vertical-align: top;
+  margin-left: .3rem;
+  font-size: 1rem;
+}
+.gameBgBox .gamePlayPanel {
+  width: 100%;
+  top: 4rem;
+  position: absolute;
+  overflow: hidden;
+}
+.gameBgBox .timeBox {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: .5rem;
+}
+.gameBgBox .course {
+  background: url(../images/course.png) no-repeat center rgba(0, 0, 0, 0.8);
+  background-size: 12.5rem 13.85rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  float: left;
+}
+.hide {
+  display: none;
+}
+.home {
+  background: url(../images/home.jpg);
+  background-size: 100% auto;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.home .titleImg {
+  background: url(../images/titleImg.png);
+  background-size: 100% 100%;
+  width: 12.8rem;
+  height: 4.7rem;
+  position: absolute;
+  top: 3.9rem;
+  left: 1.725rem;
+}
+.home .rule {
+  background: url(../images/rule.png);
+  background-size: 100% 100%;
+  width: 2.5rem;
+  height: 2.175rem;
+  position: absolute;
+  right: 0.875rem;
+  top: 1.15rem;
+}
+.home .playbtn {
+  background: url(../images/playbtn.png);
+  background-size: 100% 100%;
+  width: 7.25rem;
+  height: 1.875rem;
+  position: absolute;
+  right: 4.4rem;
+  bottom: 2.75rem;
+}
+.home .participate {
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  top: 9.55rem;
+  left: 0;
+  font-size: 0.7rem;
+}
+.home .participate em {
+  font-style: normal;
+  color: #ffde77;
+}
+.home .rbtn {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #438f44;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  text-shadow: 1px 1px 1px #fff;
+}
+.Loading {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  line-height: 7.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+.rule_pop {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.rule_pop .m {
+  background: url(../images/rule_pop.png);
+  background-size: 100% auto;
+  width: 12rem;
+  height: 8.55rem;
+  padding-top: 3.675rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -6rem;
+  top: 50%;
+  margin-top: -7.375rem;
+  z-index: 99;
+}
+.rule_pop .m span {
+  float: left;
+  margin-left: 2.875rem;
+  font-size: 0.55rem;
+  color: #438f44;
+  font-weight: bold;
+  width: 7.25rem;
+  position: relative;
+  margin-bottom: 0.875rem;
+}
+.rule_pop .m span img {
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  width: 0.675rem;
+}
+.rule_pop .zdl {
+  background: url(../images/btnzdl.png);
+  background-size: 100% 100%;
+  width: 7.2rem;
+  height: 1.875rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -3.6rem;
+  margin-top: 6rem;
+}
+.wind {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.wind .userImg {
+  z-index: 5;
+  position: absolute;
+  left: 50%;
+  margin-left: -2.7rem;
+  margin-top: -9.75rem;
+  top: 50%;
+  overflow: hidden;
+  float: left;
+  border: 0.2rem #ffffff solid;
+  width: 5rem;
+  height: 5rem;
+  -webkit-border-radius: 5rem;
+  -moz-border-radius: 5rem;
+  border-radius: 5rem;
+}
+.wind .userImg img {
+  width: 101%;
+  height: 101%;
+  float: left;
+}
+.wind .resule-bgLight {
+  z-index: 4;
+  top: -0.75rem;
+  width: 16rem;
+  height: 16rem;
+  background: url(../images/light.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  animation: bgRotate 6s linear infinite;
+  -webkit-animation: bgRotate 6s linear infinite;
+  -moz-animation: bgRotate 6s linear infinite;
+  -o-animation: bgRotate 6s linear infinite;
+}
+.wind .m {
+  background: url(../images/wind_03.png) no-repeat;
+  background-size: 100% auto;
+  width: 12rem;
+  height: 6.6rem;
+  padding-top: 3.925rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -6rem;
+  top: 50%;
+  margin-top: -6rem;
+  z-index: 99;
+}
+.wind .m p {
+  font-size: 0.8rem;
+  color: #438f44;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+.wind .m p b {
+  font-size: 1.5rem;
+}
+.wind .btnbox {
+  position: absolute;
+  top: 50%;
+  margin-top: 5.25rem;
+  text-align: center;
+  width: 100%;
+}
+.wind .btnbox button {
+  background: none;
+  height: 1.925rem;
+  margin: 0 0.175rem;
+}
+.wind .btnbox button img {
+  height: 1.925rem;
+}
+.wind .chance {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: 8rem;
+}
+.wind .chance em {
+  color: #f6940d;
+  font-style: normal;
+}
+.sharetbox {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: 9.75rem;
+}
+@keyframes bgRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ranking {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  color: #438f44;
+}
+.ranking .m {
+  position: absolute;
+  background: url(../images/ranking.png) no-repeat;
+  width: 12rem;
+  height: 20rem;
+  background-size: 100% auto;
+  left: 50%;
+  margin-left: -6rem;
+  margin-top: 2rem;
+  z-index: 99;
+}
+.ranking .m p {
+  float: left;
+  width: 100%;
+  margin-top: 3.45rem;
+  text-align: center;
+  font-weight: bold;
+}
+.ranking .m p em {
+  font-style: normal;
+  color: #ff9c00;
+}
+.ranking .m .rlist {
+  float: left;
+  height: 10.5rem;
+  overflow: auto;
+  width: 11rem;
+  margin: 0.375rem 0.5rem;
+}
+.ranking .m table {
+  text-align: center;
+  width: 100%;
+  line-height: 1rem;
+}
+.ranking .m table th {
+  line-height: 2rem;
+}
+.ranking .m table img {
+  width: 1.375rem;
+  height: 1.375rem;
+  border: 0.05rem solid #ffffff;
+  -webkit-border-radius: 1.375rem;
+  -moz-border-radius: 1.375rem;
+  border-radius: 1.375rem;
+}
+.ranking .btnbox {
+  position: absolute;
+  top: 50%;
+  margin-top: 6rem;
+  text-align: center;
+  width: 100%;
+}
+.ranking .btnbox button {
+  background: none;
+  height: 1.925rem;
+  margin: 0 0.175rem;
+}
+.ranking .btnbox button img {
+  height: 1.925rem;
+}
+.share-wx {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.8);
+}
+.attention {
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  position: absolute;
+  float: left;
+}
+.attention img {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
